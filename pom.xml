@@ -1,88 +1,172 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.joseph</groupId>
+	<artifactId>Java-web-application</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	
+	<name>Java-web-application</name>
 
-  <groupId>test1</groupId>
-  <artifactId>java-project1</artifactId>
-  <version>1.0</version>
+	<description>Simple Java Web Application</description>
 
-  <name>java-project1</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<spring.version>5.1.2.RELEASE</spring.version>
+		<junit.version>4.11</junit.version>
+		<log4j.version>1.2.17</log4j.version>
+	<!--    <sonar.host.url>http://18.118.154.165:9000/</sonar.host.url>
+		<sonar.login>bd48eb4f2344a2ffca341aa56ab8c681e8948319</sonar.login> --> 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
-  
-  <distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>jfrog-releases</name>
-        <url>http://107.20.7.59:8081/artifactory/maven-libs-release</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>jfrog-snapshots</name>
-        <url>http://107.20.7.59:8081/artifactory/maven-libs-snapshot</url>
-    </snapshotRepository>
-</distributionManagement>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+	<dependencies>
+		
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160212</version>
+		</dependency>
+		
+		<!-- test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
 
-  <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- compile dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-web</artifactId>
+    		<version>${spring.version}</version>
+  		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- provided dependencies -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+	
+	<distributionManagement>
+          <repository>
+             <id>central</id>
+             <name>295e8330a0af-releases</name>
+             <url>http://52.91.7.7:8081/artifactory/maven-libs-local</url>
+          </repository>
+          <snapshotRepository>
+             <id>snapshots</id>
+             <name>295e8330a0af-snapshots</name>
+             <url>http://52.91.7.7:8081/artifactory/maven-libs-local</url>
+   	  </snapshotRepository>
+	    
+	</distributionManagement>
+	
+	<build>
+		<finalName>java-web-application</finalName>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.11.v20150529</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/java-web-application</contextPath>
+					</webApp>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+					<wtpContextName>java-web-application</wtpContextName>
+				</configuration>
+			</plugin>
+		<!--	<plugin>
+			    <groupId>org.jfrog.buildinfo</groupId>
+			    <artifactId>artifactory-maven-plugin</artifactId>
+			    <version>3.2.3</version>
+			    <inherited>false</inherited>
+			    <executions>
+				<execution>
+				    <id>build-info</id>
+				    <goals>
+					<goal>publish</goal>
+				    </goals>
+				    <configuration>
+					<deployProperties>
+					    <gradle>awesome</gradle>
+					    <review.team>qa</review.team>
+					</deployProperties>
+					<publisher>
+					    <contextUrl>http://18.189.143.52:8081/artifactory/</contextUrl>
+					    <username>admin</username>
+					    <password>Conan@123</password>
+					    <repoKey>java-web-app-libs-release-local</repoKey>
+					    <snapshotRepoKey>java-web-app-libs-snapshot-local</snapshotRepoKey>
+					</publisher>
+				    </configuration>
+				</execution>
+			    </executions>
+			</plugin>	-->	
+</plugins>
+	</build>
+	
+	
 </project>
