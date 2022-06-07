@@ -29,7 +29,7 @@ node {
              }''',
         )
     }
-    stage("deploy to tomcat"){
+    stage("Deploy to tomcat"){
         deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://52.91.7.7:8080')], contextPath: null, war: '**/*.war'
     }
 }
