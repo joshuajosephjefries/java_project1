@@ -17,6 +17,19 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
+  
+  <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>jfrog-releases</name>
+        <url>http://107.20.7.59:8081/artifactory/maven-libs-release</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog-snapshots</name>
+        <url>http://107.20.7.59:8081/artifactory/maven-libs-snapshot</url>
+    </snapshotRepository>
+</distributionManagement>
 
   <dependencies>
     <dependency>
