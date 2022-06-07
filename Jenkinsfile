@@ -2,7 +2,7 @@ node {
     def mvnhome = tool name: "maven"
     
     stage ("scm"){
-        git branch: 'master', url: 'https://github.com/joshuajosephjefries/Java-web-application-2.git'
+        git branch: 'master', url: 'https://github.com/joshuajosephjefries/java_project1.git'
     }
     
     stage("sonar"){
