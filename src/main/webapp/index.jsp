@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" xml:lang="en">
 	<head>
 		<title>
 			Welcome To The Page
@@ -8,7 +8,7 @@
 	</head>
 
 	<body>
-		<h1><center>Hello Joseph</center></h1>
-		<h3><center>Your Application is Deployed Sucessfully... :)</center></h3>
+		<h1>Hello Joseph</h1>
+		<h3>Your Application is Deployed Sucessfully... :)</h3>
 	</body>
 </html>
